@@ -2,7 +2,6 @@
 #include "Tile.h"
 #include <cstdlib>
 #include <cstdio>
-#include <GL/gl.h>
 #include <GL/glut.h>
 
 Terrain::Terrain(int w, int h, const char data[]) : Terrain(w, h)

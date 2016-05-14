@@ -4,26 +4,27 @@
 class Terrain;
 class Snake;
 
-struct Tile
+class Tile
 {
-    enum Type
-    {
-        EMPTY, FRUIT, WALL
-    };
+	public:
+		enum Type
+		{
+			EMPTY, FRUIT, WALL
+		};
 
-    Tile *Up(Terrain &terrain);
-    Tile *Down(Terrain &terrain);
-    Tile *Left(Terrain &terrain);
-    Tile *Right(Terrain &terrain);
+		Tile *Up(Terrain &terrain);
+		Tile *Down(Terrain &terrain);
+		Tile *Left(Terrain &terrain);
+		Tile *Right(Terrain &terrain);
 
-    void Initialise(Type type, int x, int y);
+		void Initialise(Type type, int x, int y);
 
-    Type type;
+		Type type;
 
-    int x;
-    int y;
+		int x;
+		int y;
 
-    Snake *occupant;
+		Snake *occupant;
 };
 
 #endif // TILE_H

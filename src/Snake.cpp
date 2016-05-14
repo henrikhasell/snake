@@ -3,7 +3,7 @@
 #include "Tile.h"
 #include <cstdlib>
 #include <cstdio>
-#include <GL/gl.h>
+#include <GL/glut.h>
 
 Snake::Snake(Terrain &terrain, int x, int y) : direction(UP), length(1), growth(3)
 {
@@ -124,7 +124,9 @@ void Snake::Draw()
         Tile *selected = position[i];
         glPushMatrix();
             // Type-casting this often is unfortunate.
-            glTranslatef(selected->x, selected->y, 0.0f);
+            glTranslatef(
+				(GLfloat)selected->x,
+				(GLfloat)selected->y, 0.0f);
             glBegin(GL_TRIANGLE_STRIP);
                 glVertex2f(0.0f, 0.0f);
                 glVertex2f(1.0f, 0.0f);

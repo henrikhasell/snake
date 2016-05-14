@@ -1,8 +1,8 @@
 #include <iostream>
-#include <GL/gl.h>
 #include <GL/glut.h>
 #include "Terrain.h"
 #include "Snake.h"
+
 #define FRAME_TIME 100
 
 const char terrain_data[20 * 20] = {
@@ -11,7 +11,7 @@ const char terrain_data[20 * 20] = {
     1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
     1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
     1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 1,
+    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
     1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
     1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -20,7 +20,7 @@ const char terrain_data[20 * 20] = {
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
     1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-    1, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 0, 0, 0, 1,
+    1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
     1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
     1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
     1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
@@ -46,21 +46,16 @@ void display()
 
 void special(int key, int x, int y)
 {
-
     switch(key)
     {
         case GLUT_KEY_UP:
-            player.SetDirection(terrain, Snake::UP);
-            break;
+            player.SetDirection(terrain, Snake::UP); break;
         case GLUT_KEY_DOWN:
-            player.SetDirection(terrain, Snake::DOWN);
-            break;
+            player.SetDirection(terrain, Snake::DOWN); break;
         case GLUT_KEY_LEFT:
-            player.SetDirection(terrain, Snake::LEFT);
-            break;
+            player.SetDirection(terrain, Snake::LEFT); break;
         case GLUT_KEY_RIGHT:
-            player.SetDirection(terrain, Snake::RIGHT);
-            break;
+            player.SetDirection(terrain, Snake::RIGHT); break;
     }
 
 }
@@ -69,18 +64,14 @@ void keyboard(unsigned char key, int x, int y)
 {
     switch(key)
     {
-        case 'w':
-            other.SetDirection(terrain, Snake::UP);
-            break;
-        case 's':
-            other.SetDirection(terrain, Snake::DOWN);
-            break;
-        case 'a':
-            other.SetDirection(terrain, Snake::LEFT);
-            break;
-        case 'd':
-            other.SetDirection(terrain, Snake::RIGHT);
-            break;
+		case 'w': case 'W':
+            other.SetDirection(terrain, Snake::UP);  break;
+        case 's': case 'S':
+            other.SetDirection(terrain, Snake::DOWN); break;
+        case 'a': case 'A':
+            other.SetDirection(terrain, Snake::LEFT); break;
+        case 'd': case 'D':
+            other.SetDirection(terrain, Snake::RIGHT); break;
     }
 }
 
