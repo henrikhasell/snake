@@ -45,13 +45,19 @@ void Snake::Collide(Terrain &terrain)
             case Tile::EMPTY:
                 if(head->occupant)
                 {
-                    if(head->occupant == this)
+					Snake *other = head->occupant;
+
+                    if(this == other)
                     {
                         printf("%p collided with itself!\n", this);
                     }
                     else
                     {
-                        printf("%p collided with %p!\n", this, head->occupant);
+						if(this->position[0] == other->position[1])
+						{
+							other->Remove(terrain);
+						}
+                        printf("%p collided with %p!\n", this, other);
                     }
                     Remove(terrain);
                 }

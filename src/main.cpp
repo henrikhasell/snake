@@ -35,13 +35,13 @@ Snake other(terrain, 8, 15);
 
 void display()
 {
-        glClear(GL_COLOR_BUFFER_BIT);
-        terrain.Draw();
-        glColor3f(1.0f, 0.0f, 0.0f);
-        player.Draw();
-        glColor3f(0.0f, 0.0f, 1.0f);
-        other.Draw();
-        glFinish();
+    glClear(GL_COLOR_BUFFER_BIT);
+    terrain.Draw();
+    glColor3f(1.0f, 0.0f, 0.0f);
+    player.Draw();
+    glColor3f(0.0f, 0.0f, 1.0f);
+    other.Draw();
+    glFinish();
 }
 
 void special(int key, int x, int y)
